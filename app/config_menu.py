@@ -10,7 +10,8 @@ def load_env_vars():
         'PERPLEXITY_API_KEY': os.getenv('PERPLEXITY_API_KEY', ''),
         'PERPLEXITY_MODEL': os.getenv('PERPLEXITY_MODEL', 'mistral-7b-instruct'),
         'GROQ_API_KEY': os.getenv('GROQ_API_KEY', ''),
-        'GROQ_MODEL': os.getenv('GROQ_MODEL', 'mixtral-8x7b-32768')
+        'GROQ_MODEL': os.getenv('GROQ_MODEL', 'mixtral-8x7b-32768'),
+        'OPENAI_API_KEY': os.getenv('OPENAI_API_KEY', ''),
     }
 
 def save_env_vars(config):

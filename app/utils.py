@@ -97,19 +97,19 @@ def litellm_instructions():
     Note: Ensure you have the necessary permissions and credits for the selected model and provider.
     """)
 
-def litellm_config():
+def litellm_config(config):
     if 'litellm_config' not in st.session_state:
         st.session_state.litellm_config = {}
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.session_state.litellm_config['model'] = st.text_input("Model", value=st.session_state.litellm_config.get('model', 'ollama/qwen2:1.5b'))
+        st.session_state.litellm_config['model'] = st.text_input("Model", value=st.session_state.litellm_config.get('model', 'gpt-3.5-turbo'))
     
     with col2:
-        st.session_state.litellm_config['api_base'] = st.text_input("API Base", value=st.session_state.litellm_config.get('api_base', ''))
+        st.session_state.litellm_config['api_base'] = st.text_input("API Base", value=st.session_state.litellm_config.get('api_base', 'https://api.openai.com/v1'))
     
     with col3:
-        st.session_state.litellm_config['api_key'] = st.text_input("API Key", value=st.session_state.litellm_config.get('api_key', ''), type="password")
+        st.session_state.litellm_config['api_key'] = st.text_input("API Key", value=st.session_state.litellm_config.get('api_key', config['OPENAI_API_KEY']), type="password")
 
     st.info("Configuration is automatically saved in the session. No need to click a save button.")

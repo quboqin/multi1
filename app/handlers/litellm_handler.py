@@ -18,10 +18,10 @@ class LiteLLMHandler(BaseHandler):
 
     def _make_request(self, messages, max_tokens):
         set_verbose=True
+        # Remove the response_format parameter as it's causing the 400 error
         response = completion(
             model=self.model,
             messages=messages,
-            response_format= { "type": "json_schema", "json_schema": ResponseSchema.model_json_schema()  , "strict": True },
             max_tokens=max_tokens,
             temperature=0.5,
             api_base=self.api_base,

@@ -63,7 +63,7 @@ def main():
     
     if backend == "LiteLLM":
         litellm_instructions()
-        litellm_config()
+        litellm_config(config)
     else:
         display_config(backend, config)
     
